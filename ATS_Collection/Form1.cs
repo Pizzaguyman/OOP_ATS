@@ -11,7 +11,7 @@ namespace ATS_Collection
             public int? UserCount { get; private set; }
             public double? Price { get; private set; }
             public ATSEventArgs() { }
-            public ATSEventArgs(int? id, string? address, int userCount, double price)
+            public ATSEventArgs(int? id, string? address, int? userCount, double? price)
             {
                 Id = id;
                 Address = address;
@@ -34,15 +34,14 @@ namespace ATS_Collection
             public IEnumerator GetEnumerator() => Container.GetEnumerator();
             public void Add(int? id, string? address, int? userCount, double? price)
             {
-                StartAdd?.Invoke(this, new ATSEventArgs());
                 Container.Enqueue(new OOP_ATS_att4.Form1.ATS(id ?? -1, address ?? "", userCount ?? 0, price ?? 0.00));
-                Added?.Invoke(this, new ATSEventArgs());
+                Added?.Invoke(this, new ATSEventArgs(id, address, userCount, price));
             }
             public void Remove()
             {
-                StartRemove?.Invoke(this, new ATSEventArgs());
-                Container.Dequeue();
-                Removed?.Invoke(this, new ATSEventArgs());
+                if (Container.Count == 0) return;
+                var delATS = Container.Dequeue();
+                Removed?.Invoke(this, new ATSEventArgs(delATS.Id, delATS.Address, delATS.UserCount, delATS.Price));
             }
         }
 
@@ -57,10 +56,31 @@ namespace ATS_Collection
         private void Form1_Load(object sender, EventArgs e)
         {
             label2.Text = "";
-            c.Added += (ATSContainer sender, ATSEventArgs e)=> {
-                label2.Text = sender.Container.Count.ToString();
-            };
-            c.Removed += (ATSContainer sender, ATSEventArgs e) => { label2.Text = sender.Container.Count.ToString(); };
+            label3.Text = "";
+            c.Added += (ATSContainer sender, ATSEventArgs e) => { label3.Text = $"Последнее действие: в контейнер была добавлена новая АТС с ID {e.Id ?? OOP_ATS_att4.Form1.ATS.LatestId}"; };
+            c.Removed += (ATSContainer sender, ATSEventArgs e) => { label3.Text = $"Последнее действие: из контейнера была удалена АТС с ID {e.Id}"; };
+        }
+
+        private void ShowQueueCount()
+        {
+            label2.Text = c.Container.Count.ToString();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            c.Add(null, null, null, null);
+            ShowQueueCount();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            c.Remove();
+            ShowQueueCount();
         }
     }
 }

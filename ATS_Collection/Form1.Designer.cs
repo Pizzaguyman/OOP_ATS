@@ -37,6 +37,9 @@
             columnHeader4 = new ColumnHeader();
             label1 = new Label();
             label2 = new Label();
+            label3 = new Label();
+            button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // listView1
@@ -73,7 +76,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(45, 264);
+            label1.Location = new Point(45, 242);
             label1.Name = "label1";
             label1.Size = new Size(117, 15);
             label1.TabIndex = 1;
@@ -82,17 +85,50 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(168, 264);
+            label2.Location = new Point(168, 242);
             label2.Name = "label2";
             label2.Size = new Size(38, 15);
             label2.TabIndex = 2;
             label2.Text = "label2";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(45, 274);
+            label3.Name = "label3";
+            label3.Size = new Size(38, 15);
+            label3.TabIndex = 3;
+            label3.Text = "label3";
+            label3.Click += label3_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(45, 34);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 4;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(163, 31);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 5;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(663, 450);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(listView1);
@@ -112,5 +148,8 @@
         private ColumnHeader columnHeader4;
         private Label label1;
         private Label label2;
+        private Label label3;
+        private Button button1;
+        private Button button2;
     }
 }

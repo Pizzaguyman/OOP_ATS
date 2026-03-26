@@ -24,6 +24,7 @@ namespace OOP_ATS_att4
             }
             static public int ObjectCount { get; private set; }
             static public HashSet<int> IdSet { get; private set; } = new HashSet<int>();
+            static public int LatestId { get; private set; }
             public int Id { get; set; }
             public string Address { get; set; }
             public int UserCount { get; set; }
@@ -49,6 +50,7 @@ namespace OOP_ATS_att4
                     if (!IdSet.Add(id)) throw new ArgumentException("Этот ID занят");
                 }
                 Id = id;
+                LatestId = id;
                 Address = address;
                 UserIdArray = userIdArray;
                 UserCount = userIdArray.Length;
@@ -79,9 +81,8 @@ namespace OOP_ATS_att4
                     if (!IdSet.Add(id)) throw new ArgumentException("Этот ID занят");
                 }
                 Id = id;
-
+                LatestId = id;
                 Address = address;
-                //users
                 UserCount = userCount;
                 UserIdArray = new int[userCount];
                 Random rand = new Random();
@@ -91,7 +92,6 @@ namespace OOP_ATS_att4
                     while (UserIdArray.IndexOf(random) != -1) random = rand.Next(0x000000, 0xFFFFFF);
                     UserIdArray[i] = random;
                 }
-                //calls, price
                 Calls = new Call[CallCount];
                 Price = price;
                 ObjectCount = IdSet.Count;
