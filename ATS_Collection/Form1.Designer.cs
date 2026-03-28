@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ListViewItem listViewItem1 = new ListViewItem(new string[] { "Array", "1", "", "", "" }, -1);
-            ListViewItem listViewItem2 = new ListViewItem(new string[] { "Queue", "6", "", "", "" }, -1);
+            ListViewItem listViewItem1 = new ListViewItem(new string[] { "Array", "", "", "" }, -1);
+            ListViewItem listViewItem2 = new ListViewItem(new string[] { "Queue", "", "", "" }, -1);
             listView1 = new ListView();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
@@ -40,13 +40,16 @@
             label3 = new Label();
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            label4 = new Label();
             SuspendLayout();
             // 
             // listView1
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { columnHeader2, columnHeader3, columnHeader1, columnHeader4 });
             listView1.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2 });
-            listView1.Location = new Point(71, 91);
+            listView1.Location = new Point(32, 115);
             listView1.Name = "listView1";
             listView1.Size = new Size(424, 134);
             listView1.TabIndex = 0;
@@ -76,7 +79,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(45, 242);
+            label1.Location = new Point(258, 52);
             label1.Name = "label1";
             label1.Size = new Size(117, 15);
             label1.TabIndex = 1;
@@ -85,7 +88,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(168, 242);
+            label2.Location = new Point(381, 52);
             label2.Name = "label2";
             label2.Size = new Size(38, 15);
             label2.TabIndex = 2;
@@ -94,7 +97,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(45, 274);
+            label3.Location = new Point(32, 85);
             label3.Name = "label3";
             label3.Size = new Size(38, 15);
             label3.TabIndex = 3;
@@ -103,29 +106,61 @@
             // 
             // button1
             // 
-            button1.Location = new Point(45, 34);
+            button1.Location = new Point(32, 48);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 4;
-            button1.Text = "button1";
+            button1.Text = "Добавить";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(163, 31);
+            button2.Location = new Point(136, 48);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 5;
-            button2.Text = "button2";
+            button2.Text = "Удалить";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(136, 265);
+            button3.Name = "button3";
+            button3.Size = new Size(207, 23);
+            button3.TabIndex = 6;
+            button3.Text = "Сравнить массив с очередью";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(416, 265);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 7;
+            button4.Text = "Выйти";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(124, 15);
+            label4.Name = "label4";
+            label4.Size = new Size(257, 15);
+            label4.TabIndex = 8;
+            label4.Text = "Хранение АТС в контейнерном классе Queue";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(663, 450);
+            ClientSize = new Size(507, 312);
+            Controls.Add(label4);
+            Controls.Add(button4);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label3);
@@ -151,5 +186,8 @@
         private Label label3;
         private Button button1;
         private Button button2;
+        private Button button3;
+        private Button button4;
+        private Label label4;
     }
 }
