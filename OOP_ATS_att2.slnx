@@ -2,4 +2,5 @@
   <Project Path="ATS_Collection/ATS_Collection.csproj" Id="2e28fdcc-ae90-44cd-94de-71db381a7986" />
   <Project Path="OOPATSTest1/OOPATSTest1.csproj" Id="101abad4-84a7-4862-b917-2371d73c19c1" />
   <Project Path="OOP_ATS_att4/OOP_ATS_att4.csproj" Id="18b27639-ded9-47c8-bdac-e7991cb556e6" />
+  <Project Path="OOP_Lab3_ATS/OOP_Lab3_ATS.csproj" Id="d889b736-6d0d-4471-9c43-9d44acfe28ad" />
 </Solution>
