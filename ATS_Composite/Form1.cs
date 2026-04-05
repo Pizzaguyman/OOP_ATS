@@ -1,0 +1,10 @@
+namespace ATS_Composite
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+    }
+}

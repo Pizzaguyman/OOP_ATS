@@ -5,11 +5,18 @@ namespace OOP_Lab3_ATS
         TS? chosenTS;
         TSBuildingCompany builder = new MTSBuildingCompany();
         List<TS> stations = new List<TS>();
+        /// <summary>
+        /// Конструктор формы
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Создать ручную ТС при нажатии button1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             builder = new MTSBuildingCompany();
@@ -17,12 +24,16 @@ namespace OOP_Lab3_ATS
             inputID.Value++;
             UpdateTSGrid();
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             UpdateTSGrid();
         }
-
+        /// <summary>
+        /// Создать автоматическую ТС при нажатии button2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             builder = new ATSBuildingCompany();
@@ -30,14 +41,16 @@ namespace OOP_Lab3_ATS
             inputID.Value++;
             UpdateTSGrid();
         }
-
+        /// <summary>
+        /// Обновить DataGridView, показывающюю ТС
+        /// </summary>
         private void UpdateTSGrid()
         {
-            dataGridView1.RowCount = stations.Count + (stations.Count == 0 ? 1 : 0);
+            dataGridView1.RowCount = (stations.Count == 0 ? 1 : stations.Count);
             for (int i = 0; i < stations.Count; i++)
             {
                 dataGridView1.Rows[i].Cells[0].Value = stations[i].Id;
-                dataGridView1.Rows[i].Cells[1].Value = stations[i] is ManualTS ? "Мануальная" : "Автоматическая";
+                dataGridView1.Rows[i].Cells[1].Value = stations[i] is ManualTS ? "Ручная" : "Автоматическая";
                 dataGridView1.Rows[i].Cells[2].Value = stations[i].Address;
                 dataGridView1.Rows[i].Cells[3].Value = stations[i].UserCount;
                 dataGridView1.Rows[i].Cells[4].Value = stations[i].Price;
@@ -60,7 +73,11 @@ namespace OOP_Lab3_ATS
             }
             if (stations.Count == 0) dataGridView1.Rows.Clear();
         }
-
+        /// <summary>
+        /// Начать изменение или удалить ТС при нажатии соответствующих кнопок на таблице
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || (string)(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value ?? "") == "") return;
@@ -82,10 +99,10 @@ namespace OOP_Lab3_ATS
                 else
                 {
                     dataGridView2.Enabled = true;
-                    UpdateEmpGrid();
                     button3.Enabled = true;
                     changeComputers.Enabled = false;
                 }
+                UpdateEmpGrid();
             }
             if (e.ColumnIndex == 8)
             {
@@ -95,9 +112,12 @@ namespace OOP_Lab3_ATS
                 UpdateTSGrid();
             }
         }
-
+        /// <summary>
+        /// Обновить DataGridView, показывающюю рабочих МТС
+        /// </summary>
         private void UpdateEmpGrid()
         {
+            dataGridView2.Rows.Clear();
             if (chosenTS is ManualTS mts)
             {
                 dataGridView2.RowCount = mts.Employees.Count + (mts.Employees.Count == 0 ? 1 : 0);
@@ -111,7 +131,11 @@ namespace OOP_Lab3_ATS
                 }
             }
         }
-
+        /// <summary>
+        /// Завершить изменения ТС при нажатии кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void confirmChange_Click(object sender, EventArgs e)
         {
             chosenTS?.Change((int)changeId.Value, changeAddress.Text, (int)changeUserCount.Value, (double)changePrice.Value);
@@ -120,7 +144,11 @@ namespace OOP_Lab3_ATS
             button3.Enabled = false;
             UpdateTSGrid();
         }
-
+        /// <summary>
+        /// Добавить нового рабочего МТС при нажатии кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             if (chosenTS is ManualTS mts)
@@ -130,7 +158,11 @@ namespace OOP_Lab3_ATS
             }
             UpdateEmpGrid();
         }
-
+        /// <summary>
+        /// Удалить рабочего МТС при нажатии кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -143,7 +175,11 @@ namespace OOP_Lab3_ATS
                 }
             }
         }
-
+        /// <summary>
+        /// Закрыть приложение при нажатии кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             Close();

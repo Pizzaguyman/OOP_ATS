@@ -22,8 +22,6 @@ namespace ATS_Collection
         public class ATSContainer
         {
             public delegate void ATSContainerHandler(ATSContainer sender, ATSEventArgs e);
-            public event ATSContainerHandler? StartAdd;
-            public event ATSContainerHandler? StartRemove;
             public event ATSContainerHandler? Added;
             public event ATSContainerHandler? Removed;
             public Queue<OOP_ATS_att4.ATS> Container { get; }
@@ -37,17 +35,17 @@ namespace ATS_Collection
                 Container.Enqueue(new OOP_ATS_att4.ATS(id ?? -1, address ?? "", userCount ?? 0, price ?? 0.00));
                 Added?.Invoke(this, new ATSEventArgs(id, address, userCount, price));
             }
-            public void Remove()
+            public bool Remove()
             {
-                if (Container.Count == 0) return;
+                if (Container.Count == 0) return false;
                 var delATS = Container.Dequeue();
                 Removed?.Invoke(this, new ATSEventArgs(delATS.Id, delATS.Address, delATS.UserCount, delATS.Price));
                 delATS.RemoveId();
+                return true;
             }
         }
 
         ATSContainer c = new();
-        int Time;
 
         public Form1()
         {
@@ -80,7 +78,10 @@ namespace ATS_Collection
 
         private void button2_Click(object sender, EventArgs e)
         {
-            c.Remove();
+            if (!c.Remove())
+            {
+                MessageBox.Show("Контейнер уже пустой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             ShowQueueCount();
         }
 
@@ -97,20 +98,17 @@ namespace ATS_Collection
             listView1.Items[1].SubItems[1].Text = (Environment.TickCount - t2).ToString();
             OOP_ATS_att4.ATS temp;
             int t3 = Environment.TickCount;
-            foreach (var item in array)
-                temp = item;
+            for (int i = 0; i < 100000; i++)
+            {
+                temp = array[i];
+                array[i].RemoveId();
+            }
             listView1.Items[0].SubItems[2].Text = (Environment.TickCount - t3).ToString();
             int t4 = Environment.TickCount;
             for (int i = 0; i < 100000; i++){
                 c.Remove();
             }
             listView1.Items[1].SubItems[2].Text = (Environment.TickCount - t4).ToString();
-            //int t5 = Environment.TickCount;
-
-            //listView1.Items[0].SubItems[0].Text = (Environment.TickCount - t5).ToString();
-            //int t6 = Environment.TickCount;
-
-            //listView1.Items[0].SubItems[0].Text = (Environment.TickCount - t6).ToString();
         }
 
         private void button4_Click(object sender, EventArgs e)

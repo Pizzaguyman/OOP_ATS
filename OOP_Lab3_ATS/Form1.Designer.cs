@@ -59,14 +59,16 @@
             label10 = new Label();
             changeComputers = new NumericUpDown();
             dataGridView2 = new DataGridView();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
+            Column8 = new DataGridViewButtonColumn();
             button3 = new Button();
             label9 = new Label();
             inputName = new TextBox();
             confirmChange = new Button();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewButtonColumn();
             button4 = new Button();
+            label11 = new Label();
+            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)inputID).BeginInit();
             ((System.ComponentModel.ISupportInitialize)inputUserCount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)inputPrice).BeginInit();
@@ -80,21 +82,23 @@
             // 
             // inputID
             // 
-            inputID.Location = new Point(19, 26);
+            inputID.Location = new Point(20, 54);
+            inputID.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             inputID.Name = "inputID";
             inputID.Size = new Size(160, 23);
             inputID.TabIndex = 0;
             // 
             // inputUserCount
             // 
-            inputUserCount.Location = new Point(19, 114);
+            inputUserCount.Location = new Point(20, 142);
+            inputUserCount.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             inputUserCount.Name = "inputUserCount";
             inputUserCount.Size = new Size(160, 23);
             inputUserCount.TabIndex = 1;
             // 
             // inputAddress
             // 
-            inputAddress.Location = new Point(19, 70);
+            inputAddress.Location = new Point(20, 98);
             inputAddress.MaxLength = 300;
             inputAddress.Name = "inputAddress";
             inputAddress.Size = new Size(158, 23);
@@ -103,7 +107,7 @@
             // inputPrice
             // 
             inputPrice.DecimalPlaces = 2;
-            inputPrice.Location = new Point(22, 158);
+            inputPrice.Location = new Point(23, 186);
             inputPrice.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             inputPrice.Name = "inputPrice";
             inputPrice.Size = new Size(160, 23);
@@ -111,7 +115,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(11, 197);
+            button1.Location = new Point(12, 225);
             button1.Name = "button1";
             button1.Size = new Size(184, 23);
             button1.TabIndex = 4;
@@ -121,7 +125,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(11, 226);
+            button2.Location = new Point(12, 254);
             button2.Name = "button2";
             button2.Size = new Size(184, 23);
             button2.TabIndex = 5;
@@ -134,7 +138,7 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { IDS, Type, Column1, Column2, Column5, Column3, Column4, Edit, Delete });
-            dataGridView1.Location = new Point(218, 23);
+            dataGridView1.Location = new Point(219, 51);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.Size = new Size(634, 429);
@@ -203,7 +207,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(39, 8);
+            label1.Location = new Point(40, 36);
             label1.Name = "label1";
             label1.Size = new Size(18, 15);
             label1.TabIndex = 7;
@@ -212,7 +216,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(39, 52);
+            label2.Location = new Point(40, 80);
             label2.Name = "label2";
             label2.Size = new Size(40, 15);
             label2.TabIndex = 8;
@@ -221,7 +225,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(22, 96);
+            label3.Location = new Point(23, 124);
             label3.Name = "label3";
             label3.Size = new Size(157, 15);
             label3.TabIndex = 9;
@@ -230,7 +234,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(39, 140);
+            label4.Location = new Point(40, 168);
             label4.Name = "label4";
             label4.Size = new Size(35, 15);
             label4.TabIndex = 10;
@@ -239,7 +243,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(919, 140);
+            label5.Location = new Point(920, 168);
             label5.Name = "label5";
             label5.Size = new Size(35, 15);
             label5.TabIndex = 18;
@@ -248,7 +252,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(902, 96);
+            label6.Location = new Point(903, 124);
             label6.Name = "label6";
             label6.Size = new Size(157, 15);
             label6.TabIndex = 17;
@@ -257,7 +261,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(919, 52);
+            label7.Location = new Point(920, 80);
             label7.Name = "label7";
             label7.Size = new Size(40, 15);
             label7.TabIndex = 16;
@@ -266,7 +270,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(919, 8);
+            label8.Location = new Point(920, 36);
             label8.Name = "label8";
             label8.Size = new Size(18, 15);
             label8.TabIndex = 15;
@@ -275,7 +279,7 @@
             // changePrice
             // 
             changePrice.DecimalPlaces = 2;
-            changePrice.Location = new Point(902, 158);
+            changePrice.Location = new Point(903, 186);
             changePrice.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             changePrice.Name = "changePrice";
             changePrice.Size = new Size(160, 23);
@@ -283,7 +287,7 @@
             // 
             // changeAddress
             // 
-            changeAddress.Location = new Point(899, 70);
+            changeAddress.Location = new Point(900, 98);
             changeAddress.MaxLength = 300;
             changeAddress.Name = "changeAddress";
             changeAddress.Size = new Size(158, 23);
@@ -291,14 +295,16 @@
             // 
             // changeUserCount
             // 
-            changeUserCount.Location = new Point(899, 114);
+            changeUserCount.Location = new Point(900, 142);
+            changeUserCount.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             changeUserCount.Name = "changeUserCount";
             changeUserCount.Size = new Size(160, 23);
             changeUserCount.TabIndex = 12;
             // 
             // changeId
             // 
-            changeId.Location = new Point(899, 26);
+            changeId.Location = new Point(900, 54);
+            changeId.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             changeId.Name = "changeId";
             changeId.Size = new Size(160, 23);
             changeId.TabIndex = 11;
@@ -306,7 +312,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(902, 377);
+            label10.Location = new Point(903, 405);
             label10.Name = "label10";
             label10.Size = new Size(151, 15);
             label10.TabIndex = 20;
@@ -315,7 +321,8 @@
             // changeComputers
             // 
             changeComputers.Enabled = false;
-            changeComputers.Location = new Point(899, 395);
+            changeComputers.Location = new Point(900, 423);
+            changeComputers.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             changeComputers.Name = "changeComputers";
             changeComputers.Size = new Size(163, 23);
             changeComputers.TabIndex = 22;
@@ -326,52 +333,12 @@
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column6, Column7, Column8 });
             dataGridView2.Enabled = false;
-            dataGridView2.Location = new Point(880, 197);
+            dataGridView2.Location = new Point(881, 225);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersVisible = false;
             dataGridView2.Size = new Size(198, 128);
             dataGridView2.TabIndex = 23;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick;
-            // 
-            // button3
-            // 
-            button3.Enabled = false;
-            button3.Location = new Point(1016, 331);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 41);
-            button3.TabIndex = 24;
-            button3.Text = "Добавить";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(887, 331);
-            label9.Name = "label9";
-            label9.Size = new Size(67, 15);
-            label9.TabIndex = 25;
-            label9.Text = "Новое имя";
-            // 
-            // inputName
-            // 
-            inputName.Location = new Point(880, 349);
-            inputName.MaxLength = 30;
-            inputName.Name = "inputName";
-            inputName.Size = new Size(117, 23);
-            inputName.TabIndex = 26;
-            // 
-            // confirmChange
-            // 
-            confirmChange.AutoSize = true;
-            confirmChange.Enabled = false;
-            confirmChange.Location = new Point(919, 427);
-            confirmChange.Name = "confirmChange";
-            confirmChange.Size = new Size(122, 25);
-            confirmChange.TabIndex = 27;
-            confirmChange.Text = "Подтвердить";
-            confirmChange.UseVisualStyleBackColor = true;
-            confirmChange.Click += confirmChange_Click;
             // 
             // Column6
             // 
@@ -398,10 +365,50 @@
             Column8.Text = "X";
             Column8.UseColumnTextForButtonValue = true;
             // 
+            // button3
+            // 
+            button3.Enabled = false;
+            button3.Location = new Point(1017, 359);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 41);
+            button3.TabIndex = 24;
+            button3.Text = "Добавить";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(888, 359);
+            label9.Name = "label9";
+            label9.Size = new Size(67, 15);
+            label9.TabIndex = 25;
+            label9.Text = "Новое имя";
+            // 
+            // inputName
+            // 
+            inputName.Location = new Point(881, 377);
+            inputName.MaxLength = 30;
+            inputName.Name = "inputName";
+            inputName.Size = new Size(117, 23);
+            inputName.TabIndex = 26;
+            // 
+            // confirmChange
+            // 
+            confirmChange.AutoSize = true;
+            confirmChange.Enabled = false;
+            confirmChange.Location = new Point(920, 455);
+            confirmChange.Name = "confirmChange";
+            confirmChange.Size = new Size(122, 25);
+            confirmChange.TabIndex = 27;
+            confirmChange.Text = "Подтвердить";
+            confirmChange.UseVisualStyleBackColor = true;
+            confirmChange.Click += confirmChange_Click;
+            // 
             // button4
             // 
             button4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            button4.Location = new Point(11, 263);
+            button4.Location = new Point(12, 291);
             button4.Name = "button4";
             button4.Size = new Size(182, 196);
             button4.TabIndex = 28;
@@ -409,11 +416,31 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(217, 15);
+            label11.Name = "label11";
+            label11.Size = new Size(606, 15);
+            label11.TabIndex = 29;
+            label11.Text = "Медведев М., Бакуткин А., 24ВП1, лаба 3. Ручные и автоматические телефонные станции. Фабричный метод";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(927, 13);
+            label12.Name = "label12";
+            label12.Size = new Size(106, 15);
+            label12.TabIndex = 30;
+            label12.Text = "Изменение полей";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1103, 480);
+            ClientSize = new Size(1103, 492);
+            Controls.Add(label12);
+            Controls.Add(label11);
             Controls.Add(button4);
             Controls.Add(confirmChange);
             Controls.Add(inputName);
@@ -441,8 +468,10 @@
             Controls.Add(inputAddress);
             Controls.Add(inputUserCount);
             Controls.Add(inputID);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Фабрика АТС";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)inputID).EndInit();
             ((System.ComponentModel.ISupportInitialize)inputUserCount).EndInit();
@@ -498,5 +527,7 @@
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewButtonColumn Column8;
         private Button button4;
+        private Label label11;
+        private Label label12;
     }
 }

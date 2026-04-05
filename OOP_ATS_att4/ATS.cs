@@ -143,7 +143,10 @@ namespace OOP_ATS_att4
             Id = id;
             Address = address;
             int[] new_users = new int[userCount];
-            new_users = UserIdArray[(UserCount - Math.Min(UserCount, userCount))..];
+            for (int i = 0; i < UserIdArray[(UserCount - Math.Min(UserCount, userCount))..].Length; i++)
+            {
+                new_users[i] = UserIdArray[(UserCount - Math.Min(UserCount, userCount))..][i];
+            }
             Random rand = new Random();
             for (int i = UserCount; i < userCount; i++)
             {
