@@ -1,22 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 
 namespace ATS_Composite
 {
     public class PhoneGroup : ATSComponent
     {
+        public override TreeNode Node { get; set; } = new TreeNode();
         public string Name { get; set; } = "";
         List<ATSComponent> Components { get; set; } = new List<ATSComponent>();
         public int ComponentCount { get; private set; }
-        public PhoneGroup(int id) : base(id) { Name = $"Id"; }
+        public PhoneGroup() : base() { }
+        public PhoneGroup(string name) : this() 
+        { 
+            Name = name;
+            Node.Text = $"Группа {name}, {ComponentCount} компонентов";
+        }
         public override void Add(ATSComponent c)
         {
             Components.Add(c);
+            Node.Nodes.Add(c.Node);
             CountUpdate();
         }
         public override void Remove(int index)
         {
+            Node.Nodes.RemoveAt(index);
             Components.RemoveAt(index);
             CountUpdate();
         }
@@ -27,6 +36,58 @@ namespace ATS_Composite
                 if (c is PhoneGroup gr) ComponentCount += gr.ComponentCount;
                 else ComponentCount++;
             }
+        }
+        public override void Connect()
+        {
+            foreach (ATSComponent c in Components) c.Connect();
+        }
+        public override void Disconnect()
+        {
+            foreach (ATSComponent c in Components) c.Disconnect();
+        }
+        public override ATSComponent? FindChild(TreeNode node)
+        {
+            foreach(ATSComponent c in Components)
+            {
+                if(c.Node==node) return c;
+            }
+            foreach(ATSComponent c in Components)
+            {
+                if (c is PhoneGroup gr) return c.FindChild(node);
+            }
+            return null;
+        }
+        public int GetBusiness()
+        {
+            int f = 0, t = 0;
+            foreach (ATSComponent c in Components)
+            {
+                if (c is Phone ph)
+                {
+                    if (ph.Busy) t++;
+                    else f++;
+                }
+                else if (c is PhoneGroup gr) gr.GetBusinessChild(ref f, ref t);
+            }
+            if (t == 0) return 0;
+            else if (f == 0) return 2;
+            else return 1;
+        }
+        private void GetBusinessChild(ref int f, ref int t)
+        {
+            foreach (ATSComponent c in Components)
+            {
+                if (c is Phone ph)
+                {
+                    if (ph.Busy) t++;
+                    else f++;
+                }
+                else if (c is PhoneGroup gr) gr.GetBusinessChild(ref f, ref t);
+            }
+        }
+        public void RemoveDeep()
+        {
+
         }
     }
 }
