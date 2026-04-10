@@ -72,7 +72,17 @@ namespace ATS_Composite
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            if(chosen is Phone ph)
+            {
+                ph.Busy = checkBox1.Checked;
+                ph.Number = (ulong)numericUpDown1.Value;
+            }
+            if(chosen is PhoneGroup gr)
+            {
+                if (checkBox1.Checked) gr.Connect();
+                else if (checkBox1.CheckState == CheckState.Unchecked) gr.Disconnect();
+                gr.Name = textBox1.Text;
+            }
         }
     }
 }
