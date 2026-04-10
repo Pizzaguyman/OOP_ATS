@@ -10,9 +10,8 @@ namespace ATS_Composite
         public abstract TreeNode Node { get; set; }
         public ATSComponent(){}
         public abstract void Add(ATSComponent c);
-        public abstract void Remove(int index);
+        public abstract void Remove(ATSComponent c);
         public abstract void Connect();
         public abstract void Disconnect();
-        public abstract ATSComponent? FindChild(TreeNode node);
     }
 }

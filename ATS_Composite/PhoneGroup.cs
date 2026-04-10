@@ -23,10 +23,10 @@ namespace ATS_Composite
             Node.Nodes.Add(c.Node);
             CountUpdate();
         }
-        public override void Remove(int index)
+        public override void Remove(ATSComponent c)
         {
-            Node.Nodes.RemoveAt(index);
-            Components.RemoveAt(index);
+            Node.Nodes.RemoveAt(Components.IndexOf(c));
+            Components.Remove(c);
             CountUpdate();
         }
         private void CountUpdate()
@@ -36,6 +36,7 @@ namespace ATS_Composite
                 if (c is PhoneGroup gr) ComponentCount += gr.ComponentCount;
                 else ComponentCount++;
             }
+            Node.Text = $"Группа {Name}, {ComponentCount} компонентов";
         }
         public override void Connect()
         {
@@ -45,7 +46,7 @@ namespace ATS_Composite
         {
             foreach (ATSComponent c in Components) c.Disconnect();
         }
-        public override ATSComponent? FindChild(TreeNode node)
+        public ATSComponent? FindChild(TreeNode node)
         {
             foreach(ATSComponent c in Components)
             {
@@ -53,7 +54,17 @@ namespace ATS_Composite
             }
             foreach(ATSComponent c in Components)
             {
-                if (c is PhoneGroup gr) return c.FindChild(node);
+                if (c is PhoneGroup gr) return gr.FindChild(node);
+            }
+            return null;
+        }
+        public ATSComponent? FindParentOf(ATSComponent c)
+        {
+            if(this == c) return null;
+            if (Components.Contains(c)) return this;
+            foreach (ATSComponent ic in Components)
+            {
+                if (ic is PhoneGroup gr) return gr.FindParentOf(c);
             }
             return null;
         }
@@ -85,9 +96,9 @@ namespace ATS_Composite
                 else if (c is PhoneGroup gr) gr.GetBusinessChild(ref f, ref t);
             }
         }
-        public void RemoveDeep()
+        public void RemoveDeep(ATSComponent c)
         {
-
+            FindParentOf(c)?.Remove(c);
         }
     }
 }

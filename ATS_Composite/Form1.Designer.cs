@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TreeNode treeNode1 = new TreeNode("Node0");
-            TreeNode treeNode2 = new TreeNode("Node2");
-            TreeNode treeNode3 = new TreeNode("Node5");
-            TreeNode treeNode4 = new TreeNode("Node3", new TreeNode[] { treeNode3 });
-            TreeNode treeNode5 = new TreeNode("Node4");
-            TreeNode treeNode6 = new TreeNode("Node1", new TreeNode[] { treeNode2, treeNode4, treeNode5 });
             ComponentView = new TreeView();
             label1 = new Label();
             checkBox1 = new CheckBox();
@@ -54,19 +48,6 @@
             // 
             ComponentView.Location = new Point(21, 28);
             ComponentView.Name = "ComponentView";
-            treeNode1.Name = "Node0";
-            treeNode1.Text = "Node0";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "Node2";
-            treeNode3.Name = "Node5";
-            treeNode3.Text = "Node5";
-            treeNode4.Name = "Node3";
-            treeNode4.Text = "Node3";
-            treeNode5.Name = "Node4";
-            treeNode5.Text = "Node4";
-            treeNode6.Name = "Node1";
-            treeNode6.Text = "Node1";
-            ComponentView.Nodes.AddRange(new TreeNode[] { treeNode1, treeNode6 });
             ComponentView.Size = new Size(190, 252);
             ComponentView.TabIndex = 1;
             ComponentView.NodeMouseDoubleClick += ComponentView_NodeMouseDoubleClick;
@@ -155,6 +136,7 @@
             button3.TabIndex = 10;
             button3.Text = "Изменить";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // label4
             // 

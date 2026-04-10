@@ -19,15 +19,11 @@ namespace ATS_Composite
         {
             throw new NotImplementedException();
         }
-        public override void Remove(int index)
+        public override void Remove(ATSComponent c)
         {
             throw new NotImplementedException();
         }
         public override void Connect() => Busy = true;
         public override void Disconnect() => Busy = false;
-        public override ATSComponent? FindChild(TreeNode node)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
