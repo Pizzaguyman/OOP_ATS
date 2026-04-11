@@ -50,7 +50,7 @@
             ComponentView.Name = "ComponentView";
             ComponentView.Size = new Size(190, 252);
             ComponentView.TabIndex = 1;
-            ComponentView.NodeMouseDoubleClick += ComponentView_NodeMouseDoubleClick;
+            ComponentView.NodeMouseClick += ComponentView_NodeMouseClick;
             // 
             // label1
             // 
@@ -66,7 +66,7 @@
             checkBox1.AutoSize = true;
             checkBox1.Checked = true;
             checkBox1.CheckState = CheckState.Indeterminate;
-            checkBox1.Location = new Point(551, 89);
+            checkBox1.Location = new Point(538, 89);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(57, 19);
             checkBox1.TabIndex = 3;
@@ -130,9 +130,9 @@
             // 
             // button3
             // 
-            button3.Location = new Point(607, 134);
+            button3.Location = new Point(250, 176);
             button3.Name = "button3";
-            button3.Size = new Size(99, 23);
+            button3.Size = new Size(157, 23);
             button3.TabIndex = 10;
             button3.Text = "Изменить";
             button3.UseVisualStyleBackColor = true;
@@ -141,7 +141,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(634, 90);
+            label4.Location = new Point(415, 37);
             label4.Name = "label4";
             label4.Size = new Size(146, 15);
             label4.TabIndex = 11;
@@ -150,7 +150,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(776, 90);
+            label5.Location = new Point(557, 37);
             label5.Name = "label5";
             label5.Size = new Size(38, 15);
             label5.TabIndex = 12;
@@ -158,9 +158,9 @@
             // 
             // button4
             // 
-            button4.Location = new Point(729, 134);
+            button4.Location = new Point(429, 176);
             button4.Name = "button4";
-            button4.Size = new Size(75, 23);
+            button4.Size = new Size(157, 23);
             button4.TabIndex = 13;
             button4.Text = "Удалить";
             button4.UseVisualStyleBackColor = true;
@@ -170,7 +170,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(839, 450);
+            ClientSize = new Size(607, 291);
             Controls.Add(button4);
             Controls.Add(label5);
             Controls.Add(label4);

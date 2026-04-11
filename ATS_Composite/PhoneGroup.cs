@@ -31,10 +31,11 @@ namespace ATS_Composite
         }
         private void CountUpdate()
         {
+            ComponentCount = 0;
             foreach (ATSComponent c in Components)
             {
                 if (c is PhoneGroup gr) ComponentCount += gr.ComponentCount;
-                else ComponentCount++;
+                ComponentCount++;
             }
             Node.Text = $"Группа {Name}, {ComponentCount} компонентов";
         }
