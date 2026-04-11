@@ -14,16 +14,6 @@ namespace ATS_Composite
         private void ComponentView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             if (e.Node == null) return;
-            if (e.Node == root.Node)
-            {
-                button3.Enabled = false;
-                button4.Enabled = false;
-            }
-            else
-            {
-                button3.Enabled = true;
-                button4.Enabled = true;
-            }
             chosen = root.FindChild(e.Node) ?? chosen;
             UpdateChosen();
         }
@@ -80,6 +70,16 @@ namespace ATS_Composite
                 button1.Enabled = false;
                 button2.Enabled = false;
             }
+            if (chosen.Node == root.Node)
+            {
+                button3.Enabled = false;
+                button4.Enabled = false;
+            }
+            else
+            {
+                button3.Enabled = true;
+                button4.Enabled = true;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -104,12 +104,17 @@ namespace ATS_Composite
                 ph.Busy = checkBox1.Checked;
                 ph.Number = (ulong)numericUpDown1.Value;
             }
-            if(chosen is PhoneGroup gr)
+            if (chosen is PhoneGroup gr)
             {
                 if (checkBox1.Checked) gr.Connect();
                 else if (checkBox1.CheckState == CheckState.Unchecked) gr.Disconnect();
                 gr.Name = textBox1.Text;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

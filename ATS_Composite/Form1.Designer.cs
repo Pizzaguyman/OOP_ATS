@@ -41,23 +41,26 @@
             label4 = new Label();
             label5 = new Label();
             button4 = new Button();
+            label6 = new Label();
+            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // ComponentView
             // 
-            ComponentView.Location = new Point(21, 28);
+            ComponentView.Location = new Point(11, 11);
             ComponentView.Name = "ComponentView";
-            ComponentView.Size = new Size(190, 252);
+            ComponentView.Size = new Size(303, 252);
             ComponentView.TabIndex = 1;
             ComponentView.NodeMouseClick += ComponentView_NodeMouseClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(253, 37);
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label1.Location = new Point(426, 36);
             label1.Name = "label1";
-            label1.Size = new Size(122, 15);
+            label1.Size = new Size(160, 20);
             label1.TabIndex = 2;
             label1.Text = "Выбранный элемент";
             // 
@@ -66,7 +69,7 @@
             checkBox1.AutoSize = true;
             checkBox1.Checked = true;
             checkBox1.CheckState = CheckState.Indeterminate;
-            checkBox1.Location = new Point(538, 89);
+            checkBox1.Location = new Point(623, 120);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(57, 19);
             checkBox1.TabIndex = 3;
@@ -75,7 +78,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(253, 87);
+            numericUpDown1.Location = new Point(338, 118);
             numericUpDown1.Maximum = new decimal(new int[] { 1316134911, 2328, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
@@ -85,14 +88,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(415, 87);
+            textBox1.Location = new Point(500, 118);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 5;
             // 
             // button1
             // 
-            button1.Location = new Point(429, 134);
+            button1.Location = new Point(514, 165);
             button1.Name = "button1";
             button1.Size = new Size(157, 23);
             button1.TabIndex = 6;
@@ -102,7 +105,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(250, 134);
+            button2.Location = new Point(335, 165);
             button2.Name = "button2";
             button2.Size = new Size(157, 23);
             button2.TabIndex = 7;
@@ -113,7 +116,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(253, 69);
+            label2.Location = new Point(338, 100);
             label2.Name = "label2";
             label2.Size = new Size(101, 15);
             label2.TabIndex = 8;
@@ -122,7 +125,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(415, 69);
+            label3.Location = new Point(500, 100);
             label3.Name = "label3";
             label3.Size = new Size(75, 15);
             label3.TabIndex = 9;
@@ -130,7 +133,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(250, 176);
+            button3.Location = new Point(335, 202);
             button3.Name = "button3";
             button3.Size = new Size(157, 23);
             button3.TabIndex = 10;
@@ -141,7 +144,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(415, 37);
+            label4.Location = new Point(429, 67);
             label4.Name = "label4";
             label4.Size = new Size(146, 15);
             label4.TabIndex = 11;
@@ -150,7 +153,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(557, 37);
+            label5.Location = new Point(571, 67);
             label5.Name = "label5";
             label5.Size = new Size(38, 15);
             label5.TabIndex = 12;
@@ -158,7 +161,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(429, 176);
+            button4.Location = new Point(514, 202);
             button4.Name = "button4";
             button4.Size = new Size(157, 23);
             button4.TabIndex = 13;
@@ -166,11 +169,32 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(404, 9);
+            label6.Name = "label6";
+            label6.Size = new Size(268, 15);
+            label6.TabIndex = 14;
+            label6.Text = "Медведев М, Бакуткин А, лаба 4, компоновщик";
+            // 
+            // button5
+            // 
+            button5.Location = new Point(335, 240);
+            button5.Name = "button5";
+            button5.Size = new Size(338, 23);
+            button5.TabIndex = 15;
+            button5.Text = "Выход";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(607, 291);
+            ClientSize = new Size(686, 273);
+            Controls.Add(button5);
+            Controls.Add(label6);
             Controls.Add(button4);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -185,7 +209,7 @@
             Controls.Add(label1);
             Controls.Add(ComponentView);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Работа с телефонами АТС";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
@@ -206,5 +230,7 @@
         private Label label4;
         private Label label5;
         private Button button4;
+        private Label label6;
+        private Button button5;
     }
 }
