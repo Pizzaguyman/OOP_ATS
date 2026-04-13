@@ -28,12 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            dataGridView1 = new DataGridView();
+            textBox1 = new TextBox();
+            dateTimePicker1 = new DateTimePicker();
+            dateTimePicker2 = new DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(13, 17);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(775, 218);
+            dataGridView1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(13, 248);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(775, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(13, 298);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 2;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(13, 344);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(200, 23);
+            dateTimePicker2.TabIndex = 3;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dateTimePicker2);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(textBox1);
+            Controls.Add(dataGridView1);
+            Name = "Form1";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private DataGridView dataGridView1;
+        private TextBox textBox1;
+        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePicker2;
     }
 }
