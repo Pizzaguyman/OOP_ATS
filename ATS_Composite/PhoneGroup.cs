@@ -101,5 +101,9 @@ namespace ATS_Composite
         {
             FindParentOf(c)?.Remove(c);
         }
+        public override string ToString()
+        {
+            return $"Группа {Name}, {ComponentCount} компонентов";
+        }
     }
 }

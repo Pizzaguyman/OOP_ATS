@@ -48,7 +48,6 @@ namespace ATS_Composite
 
         private void UpdateChosen()
         {
-
             if (chosen is PhoneGroup gr)
             {
                 numericUpDown1.Value = numericUpDown1.Minimum;
@@ -65,7 +64,7 @@ namespace ATS_Composite
             {
                 textBox1.Text = "";
                 numericUpDown1.Value = ph.Number;
-                checkBox1.Checked = ph.Busy;
+                checkBox1.CheckState = ph.Busy?CheckState.Checked:CheckState.Unchecked;
                 label5.Text = "";
                 button1.Enabled = false;
                 button2.Enabled = false;
@@ -110,6 +109,7 @@ namespace ATS_Composite
                 else if (checkBox1.CheckState == CheckState.Unchecked) gr.Disconnect();
                 gr.Name = textBox1.Text;
             }
+            chosen.Node.Text = chosen.ToString();
         }
 
         private void button5_Click(object sender, EventArgs e)

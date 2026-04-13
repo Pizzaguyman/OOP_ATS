@@ -25,5 +25,9 @@ namespace ATS_Composite
         }
         public override void Connect() => Busy = true;
         public override void Disconnect() => Busy = false;
+        public override string ToString()
+        {
+            return $"{Number}, " + (Busy ? "занято" : "свободно");
+        }
     }
 }

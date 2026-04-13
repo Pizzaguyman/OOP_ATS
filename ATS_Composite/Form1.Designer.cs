@@ -43,14 +43,15 @@
             button4 = new Button();
             label6 = new Label();
             button5 = new Button();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // ComponentView
             // 
-            ComponentView.Location = new Point(11, 11);
+            ComponentView.Location = new Point(11, 36);
             ComponentView.Name = "ComponentView";
-            ComponentView.Size = new Size(303, 252);
+            ComponentView.Size = new Size(303, 227);
             ComponentView.TabIndex = 1;
             ComponentView.NodeMouseClick += ComponentView_NodeMouseClick;
             // 
@@ -172,7 +173,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(404, 9);
+            label6.Location = new Point(371, 9);
             label6.Name = "label6";
             label6.Size = new Size(268, 15);
             label6.TabIndex = 14;
@@ -188,11 +189,21 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(28, 12);
+            label7.Name = "label7";
+            label7.Size = new Size(194, 15);
+            label7.TabIndex = 16;
+            label7.Text = "Нажмите чтобы выбрать элемент";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(686, 273);
+            Controls.Add(label7);
             Controls.Add(button5);
             Controls.Add(label6);
             Controls.Add(button4);
@@ -232,5 +243,6 @@
         private Button button4;
         private Label label6;
         private Button button5;
+        private Label label7;
     }
 }
