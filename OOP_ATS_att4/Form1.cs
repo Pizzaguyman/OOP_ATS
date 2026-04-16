@@ -291,8 +291,8 @@ namespace OOP_ATS_att4
                 if (ATS.IdList.Contains((int)inputChosenATSID.Value))
                 {
                     int chosenId = (int)inputChosenATSID.Value;
-                    _ATS_list.Find(ATS => { return ATS.Id == chosenId; }).RemoveId();
-                    _ATS_list.Remove(_ATS_list.Find(ATS => { return ATS.Id == chosenId; }));
+                    (_ATS_list.Find(ATS => { return ATS.Id == chosenId; }) ?? _ATS_list[_chosen_ATS]).RemoveId();
+                    _ATS_list.Remove(_ATS_list.Find(ATS => { return ATS.Id == chosenId; }) ?? _ATS_list[_chosen_ATS]);
                     if (_ATS_list.Count > 0)
                     {
                         _chosen_ATS = _ATS_list.Count - 1;
@@ -338,7 +338,7 @@ namespace OOP_ATS_att4
         {
             if (e.ColumnIndex == 0 && e.RowIndex != -1)
             {
-                int val = (int)userGrid.Rows[e.RowIndex].Cells[0].Value;
+                int val = Convert.ToInt32(userGrid.Rows[e.RowIndex].Cells[0].Value);
                 inputUserID2.Value = val;
             }
         }
@@ -347,7 +347,7 @@ namespace OOP_ATS_att4
         {
             if (e.ColumnIndex == 0 && e.RowIndex != -1)
             {
-                int val = (int)userGrid.Rows[e.RowIndex].Cells[0].Value;
+                int val = Convert.ToInt32(userGrid.Rows[e.RowIndex].Cells[0].Value);
                 inputUserID1.Value = val;
             }
         }
