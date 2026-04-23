@@ -20,7 +20,7 @@ namespace ATS_Composite
         /// </summary>
         /// <param name="num">Номер телефона</param>
         /// <param name="busy">Занятость номера</param>
-        public Phone(ulong num, bool busy) : base()
+        public Phone(ulong num, bool busy)
         {
             Number = num;
             Busy = busy;

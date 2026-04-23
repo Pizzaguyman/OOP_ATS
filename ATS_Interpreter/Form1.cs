@@ -140,6 +140,7 @@ namespace ATS_Interpreter
         private void Form1_Load(object sender, EventArgs e)
         {
             label6.Text = "";
+            callLengthChosen.SelectedIndex = 0;
         }
 
         private void quit_Click(object sender, EventArgs e)

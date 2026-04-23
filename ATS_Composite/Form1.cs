@@ -14,6 +14,7 @@ namespace ATS_Composite
         private void ComponentView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             if (e.Node == null) return;
+            if (e.Node == root.Node) chosen = root;
             chosen = root.FindChild(e.Node) ?? chosen;
             UpdateChosen();
         }

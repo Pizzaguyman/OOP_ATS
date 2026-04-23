@@ -24,20 +24,16 @@ namespace ATS_Composite
         /// </summary>
         public int ComponentCount { get; private set; }
         /// <summary>
-        /// Конструктор по умолчанию
-        /// </summary>
-        public PhoneGroup() : base() { }
-        /// <summary>
         /// Конструктор с параметрами
         /// </summary>
         /// <param name="name">Название группы</param>
-        public PhoneGroup(string name) : this() 
+        public PhoneGroup(string name)
         { 
             Name = name;
             Node.Text = ToString();
         }
         /// <summary>
-        /// Добавить подкомпонент
+        /// Добавить подкомпонент <paramref name="c"/>
         /// </summary>
         /// <param name="c">Добавляемый компонент</param>
         public override void Add(ATSComponent c)
@@ -61,12 +57,7 @@ namespace ATS_Composite
         /// </summary>
         private void CountUpdate()
         {
-            ComponentCount = 0;
-            foreach (ATSComponent c in Components)
-            {
-                if (c is PhoneGroup gr) ComponentCount += gr.ComponentCount;
-                ComponentCount++;
-            }
+            ComponentCount = Components.Count;
             Node.Text = ToString();
         }
         /// <summary>
